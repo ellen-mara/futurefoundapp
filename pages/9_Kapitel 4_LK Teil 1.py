@@ -64,6 +64,7 @@ if st.session_state["ld1_abgegeben"]:
     idx = antworten.index(auswahl)
     if st.session_state["ld1_feedback"] == "richtig":
         st.markdown(f'<div class="feedback-success">{feedback[idx]}</div>', unsafe_allow_html=True)
+        st.markdown("<div style='margin-top: 28px;'></div>", unsafe_allow_html=True)
         if st.button("Weiter"):
             st.session_state["ld1_abgegeben"] = False
             st.session_state["ld1_radio_key"] += 1
