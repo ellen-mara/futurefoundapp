@@ -104,3 +104,4 @@ if st.session_state["abgegeben"]:
         if st.button("Wiederholen"):
             reset_lernkontrolle()
             st.stop()
+
