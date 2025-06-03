@@ -41,41 +41,55 @@ def stepper(current, total):
 # --- Fragen und Feedback, inkl. Szenario als 5. Punkt ---
 fragen = [
     {
-        "frage": "Was ist eine Problemhypothese im Lean-Startup-Kontext?",
+        "frage": "Wofür steht die Abkürzung BML im Lean-Startup-Ansatz?",
         "antworten": [
-            "Eine technische Lösung für ein bekanntes Problem",
-            "Eine fundierte Annahme über ein echtes Kundenproblem",
-            "Die Liste der wichtigsten Features",
-            "Eine Marktprognose für die nächsten 6 Monate"
+            "Brainstorm – Market – Launch",
+            "Business – Model – Launch",
+            "Budget – Marketing – Learning",
+            "Build – Measure – Learn"
+        ],
+        "richtig": 3,
+        "feedback_richtig": "Genau!",
+        "feedback_falsch": "Probier es nochmals!"
+    },
+    {
+        "frage": "Was beschreibt den Lean-Ansatz im Sinne von Build – Measure – Learn (BML)?",
+        "antworten": [
+            "Möglichst günstig ein Produkt entwickeln und verkaufen",
+            "Schnell ein vollständiges Produkt bauen und intensiv bewerben",
+            "Ideen schrittweise testen, Daten sammeln und daraus lernen",
+            "Einmal planen und dann konsequent umsetzen"
+        ],
+        "richtig": 2,
+        "feedback_richtig": "Genau!",
+        "feedback_falsch": "Probier es nochmals!"
+    },
+    {
+        "frage": "Wofür steht MVP (Minimum Viable Product ) im Lean-Startup-Kontext?",
+        "antworten": [
+            "Es handelt sich um das fertige, ausgereifte Produkt, das alle Features umfasst.",
+            "Es ist das minimal funktionsfähige Produkt, um die wichtigsten Annahmen zu testen und Feedback zu erhalten.",
+            "Es ist das teuerste und umfangreichste Produkt, das den gesamten Markt ansprechen soll.",
+            "Es ist ein Prototyp, der nur intern verwendet wird, um technische Lösungen zu validieren."
         ],
         "richtig": 1,
-        "feedback_richtig": "Genau! Eine Problemhypothese beschreibt ein potenzielles Kundenproblem, das vor der Produktentwicklung validiert wird.",
-        "feedback_falsch": "Probier es nochmals! Das ist eher eine technische- oder marktbezogene Aussage, keine Problemannahme"
+        "feedback_richtig": "Genau!",
+        "feedback_falsch": "Probier es nochmals!"
     },
     {
-        "frage": "Warum beginnt Lean Startup nicht mit dem Produkt?",
+        "szenario": True,
+        "frage": "Szenario: FutureFound hat ein MVP released – 100 Downloads, aber kaum aktive Nutzung.",
+        "aufgabe": "Wie gehst du vor?",
         "antworten": [
-            "Weil Produktentwicklung teuer ist",
-            "Weil Probleme leichter zu testen sind",
-            "Weil viele Ideen am echten Bedarf vorbeigehen",
-            "Weil Investoren das fordern"
+            "Neues Feature entwickeln",
+            "NutzerInnen interviewen",
+            "Werbung schalten",
+            "Produkt stoppen"
         ],
-        "richtig": 2,
-        "feedback_richtig": "Genau! Der Lean-Startup-Ansatz minimiert das Risiko, indem er zuerst prüft, ob überhaupt ein Problem besteht.",
-        "feedback_falsch": "Probier es nochmals! Das trifft nicht den Kern der Methode"
-    },
-    {
-        "frage": "Welche Methode hilft dir, ein Kundenproblem zu validieren?",
-        "antworten": [
-            "Einen Businessplan schreiben",
-            "Einen technischen Prototyp bauen",
-            "Kundeninterviews führen",
-            "Wettbewerbsanalyse durchführen"
-        ],
-        "richtig": 2,
-        "feedback_richtig": "Genau! Kundeninterviews geben direkte Einblicke in den Alltag und die Bedürfnisse deiner Zielgruppe.",
-        "feedback_falsch": "Probier es nochmals! Dies hilft an einer späteren Stelle, aber nicht in der Problemvalidierung."
-    },
+        "richtig": 1,
+        "feedback_richtig": "✅ Richtig! NutzerInnen zu interviewen ist der beste Weg, um herauszufinden, warum das Produkt nicht genutzt wird. Jetzt bekommen wir echte Einblicke, was fehlt oder nicht passt.",
+        "feedback_falsch": "❌ Das ist nicht die beste Wahl. Es ist wichtig, zuerst zu verstehen, warum die NutzerInnen nicht aktiv sind."
+    }
 ]
 
 # --- Session State für Quiz ---
@@ -93,8 +107,8 @@ aktuelle_frage = min(st.session_state["k2_frage_idx"], len(fragen)-1)
 gesamt_fragen = len(fragen)
 
 # --- Titel, Stepper, Divider ---
-st.markdown('<div class="main-title">Kapitel 3: Startup Lean-Up!</div>', unsafe_allow_html=True)
-st.markdown('<div class="subtitle">Vom Produkt zur validierten Problemhypothese</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-title">Kapitel 2: Der Lean-Zyklus</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">Build – Measure – Learn (BML)</div>', unsafe_allow_html=True)
 stepper(aktuelle_frage, gesamt_fragen)
 st.markdown('<div class="white-divider"></div>', unsafe_allow_html=True)
 
@@ -141,7 +155,7 @@ if st.session_state["k2_abgegeben"]:
                 st.session_state["k2_abgegeben"] = False
                 st.session_state["k2_feedback"] = None
                 st.session_state["k2_radio_key"] += 1
-                st.switch_page("pages/8_Kapitel 4_ Teil 1.py")
+                st.switch_page("pages/6_Kapitel 3.py")
                 
     else:
         st.error(frage["feedback_falsch"])
