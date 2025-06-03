@@ -52,7 +52,6 @@ auswahl = st.radio(
 )
 
 if not st.session_state["ld1_abgegeben"]:
-    st.markdown("<div style='margin-top: 28px;'></div>", unsafe_allow_html=True)
     if st.button("Abgabe"):
         st.session_state["ld1_abgegeben"] = True
         if antworten.index(auswahl) == richtige_antwort:
@@ -76,9 +75,3 @@ if st.session_state["ld1_abgegeben"]:
             st.session_state["ld1_abgegeben"] = False
             st.session_state["ld1_radio_key"] += 1
             st.rerun()
-
-st.markdown("<div style='height: 44px;'></div>", unsafe_allow_html=True)
-col1, col2, col3 = st.columns([1, 6, 1], gap="small")
-with col1:
-    if st.button("Zurück"):
-        st.switch_page("pages/8_Kapitel 4_ Teil 1.py")
