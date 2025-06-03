@@ -69,3 +69,4 @@ if st.session_state["ld2_abgegeben"]:
             st.session_state["ld2_abgegeben"] = False
             st.session_state["ld2_radio_key"] += 1
             st.info("🔄 Gleich geht's weiter! Drücke erneut den Button Wiederholen.")
+            st.rerun()
