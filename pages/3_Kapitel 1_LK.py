@@ -74,13 +74,9 @@ def abgabe_callback():
         st.session_state["feedback"] = "falsch"
 
 def reset_lernkontrolle():
-    st.session_state["reset_pending"] = True
-
-if st.session_state["reset_pending"]:
     st.session_state["abgegeben"] = False
     st.session_state["feedback"] = None
     st.session_state["radio_key"] += 1
-    st.session_state["reset_pending"] = False
 
 auswahl = st.radio(
     "Wähle die richtige Antwort:",
@@ -101,4 +97,4 @@ if st.session_state["abgegeben"]:
         st.error("❌ Fast! Denk nochmal an das Build-Measure-Learn-Prinzip.")
         if st.button("Wiederholen"):
             reset_lernkontrolle()
-            st.info("🔄 Gleich geht's weiter! Drücke den Button Wiederholen erneut.")
+            st.rerun()  # oder st.experimental_rerun() bei älteren Streamlit-Versionen
