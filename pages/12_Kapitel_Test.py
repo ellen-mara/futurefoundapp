@@ -72,11 +72,9 @@ def abgabe_callback():
         st.session_state["feedback"] = "richtig"
     else:
         st.session_state["feedback"] = "falsch"
-    st.rerun()
 
 def reset_lernkontrolle():
     st.session_state["reset_pending"] = True
-    st.rerun()
 
 if st.session_state["reset_pending"]:
     st.session_state["abgegeben"] = False
@@ -104,4 +102,3 @@ if st.session_state["abgegeben"]:
         if st.button("Wiederholen"):
             reset_lernkontrolle()
             st.stop()
-
