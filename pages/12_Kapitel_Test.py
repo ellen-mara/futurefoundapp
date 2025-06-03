@@ -103,3 +103,4 @@ if st.session_state["abgegeben"]:
         st.error("❌ Fast! Denk nochmal an das Build-Measure-Learn-Prinzip.")
         if st.button("Wiederholen"):
             reset_lernkontrolle()
+            st.stop()
