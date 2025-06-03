@@ -52,6 +52,7 @@ auswahl = st.radio(
 )
 
 if not st.session_state["ld1_abgegeben"]:
+    st.markdown("<div style='margin-top: 28px;'></div>", unsafe_allow_html=True)
     if st.button("Abgabe"):
         st.session_state["ld1_abgegeben"] = True
         if antworten.index(auswahl) == richtige_antwort:
