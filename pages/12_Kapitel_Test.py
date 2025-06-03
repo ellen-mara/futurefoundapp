@@ -76,13 +76,13 @@ def abgabe_callback():
 
 def reset_lernkontrolle():
     st.session_state["reset_pending"] = True
-    st.rerun()
 
 if st.session_state["reset_pending"]:
     st.session_state["abgegeben"] = False
     st.session_state["feedback"] = None
     st.session_state["radio_key"] += 1
     st.session_state["reset_pending"] = False
+     st.rerun()
 
 auswahl = st.radio(
     "Wähle die richtige Antwort:",
