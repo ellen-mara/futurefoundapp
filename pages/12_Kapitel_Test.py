@@ -1,6 +1,6 @@
 import streamlit as st
 
-# --- Stil und Schrittzähler ---
+# --- Stil und Schrittzähler (wie Seite 5) ---
 st.markdown("""
     <style>
     .stApp { background: #23272f !important; }
@@ -13,7 +13,6 @@ st.markdown("""
     .stepper-ball.done { background: linear-gradient(135deg, #00adb5 70%, #393e46 100%); color: #fff; border: 2.5px solid #00adb5; }
     .stepper-bar { flex: 1; height: 6px; background: #393e46; border-radius: 3px; margin: 0 3px; position: relative; min-width: 28px; max-width: 70px; }
     .stepper-bar-fill { height: 100%; background: #00adb5; border-radius: 3px; position: absolute; left: 0; top: 0; transition: width 0.3s; }
-    .szenario-box { background: #393e46; color: #fff; border-radius: 12px; padding: 1.1em 1.4em; margin: 1.3em 0 1.3em 0; border-left: 6px solid #00adb5; font-size: 1.05em; }
     </style>
 """, unsafe_allow_html=True)
 
@@ -38,129 +37,69 @@ def stepper(current, total):
     html += '</div>'
     st.markdown(html, unsafe_allow_html=True)
 
-# --- Fragen und Feedback, inkl. Szenario als 5. Punkt ---
-fragen = [
-    {
-        "frage": "Wofür steht die Abkürzung BML im Lean-Startup-Ansatz?",
-        "antworten": [
-            "Brainstorm – Market – Launch",
-            "Business – Model – Launch",
-            "Budget – Marketing – Learning",
-            "Build – Measure – Learn"
-        ],
-        "richtig": 3,
-        "feedback_richtig": "Genau!",
-        "feedback_falsch": "Probier es nochmals!"
-    },
-    {
-        "frage": "Was beschreibt den Lean-Ansatz im Sinne von Build – Measure – Learn (BML)?",
-        "antworten": [
-            "Möglichst günstig ein Produkt entwickeln und verkaufen",
-            "Schnell ein vollständiges Produkt bauen und intensiv bewerben",
-            "Ideen schrittweise testen, Daten sammeln und daraus lernen",
-            "Einmal planen und dann konsequent umsetzen"
-        ],
-        "richtig": 2,
-        "feedback_richtig": "Genau!",
-        "feedback_falsch": "Probier es nochmals!"
-    },
-    {
-        "frage": "Wofür steht MVP (Minimum Viable Product ) im Lean-Startup-Kontext?",
-        "antworten": [
-            "Es handelt sich um das fertige, ausgereifte Produkt, das alle Features umfasst.",
-            "Es ist das minimal funktionsfähige Produkt, um die wichtigsten Annahmen zu testen und Feedback zu erhalten.",
-            "Es ist das teuerste und umfangreichste Produkt, das den gesamten Markt ansprechen soll.",
-            "Es ist ein Prototyp, der nur intern verwendet wird, um technische Lösungen zu validieren."
-        ],
-        "richtig": 1,
-        "feedback_richtig": "Genau!",
-        "feedback_falsch": "Probier es nochmals!"
-    },
-    {
-        "szenario": True,
-        "frage": "Szenario: FutureFound hat ein MVP released – 100 Downloads, aber kaum aktive Nutzung.",
-        "aufgabe": "Wie gehst du vor?",
-        "antworten": [
-            "Neues Feature entwickeln",
-            "NutzerInnen interviewen",
-            "Werbung schalten",
-            "Produkt stoppen"
-        ],
-        "richtig": 1,
-        "feedback_richtig": "✅ Richtig! NutzerInnen zu interviewen ist der beste Weg, um herauszufinden, warum das Produkt nicht genutzt wird. Jetzt bekommen wir echte Einblicke, was fehlt oder nicht passt.",
-        "feedback_falsch": "❌ Das ist nicht die beste Wahl. Es ist wichtig, zuerst zu verstehen, warum die NutzerInnen nicht aktiv sind."
-    }
-]
+# --- Titel, Stepper, Divider (wie Seite 5) ---
+st.markdown('<div class="main-title">Lernkontrolle, Kapitel 1</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">Was beschreibt den Kern des Lean-Startup-Ansatzes?</div>', unsafe_allow_html=True)
 
-# --- Session State für Quiz ---
-if "k2_frage_idx" not in st.session_state:
-    st.session_state["k2_frage_idx"] = 0
-if "k2_abgegeben" not in st.session_state:
-    st.session_state["k2_abgegeben"] = False
-if "k2_feedback" not in st.session_state:
-    st.session_state["k2_feedback"] = None
-if "k2_radio_key" not in st.session_state:
-    st.session_state["k2_radio_key"] = 0
-
-# --- Fehlerbehandlung für Index ---
-aktuelle_frage = min(st.session_state["k2_frage_idx"], len(fragen)-1)
-gesamt_fragen = len(fragen)
-
-# --- Titel, Stepper, Divider ---
-st.markdown('<div class="main-title">Kapitel 2: Der Lean-Zyklus</div>', unsafe_allow_html=True)
-st.markdown('<div class="subtitle">Build – Measure – Learn (BML)</div>', unsafe_allow_html=True)
+# --- Schrittzähler für 1 Frage (bei mehreren Fragen entsprechend anpassen) ---
+aktuelle_frage = 0
+gesamt_fragen = 1
 stepper(aktuelle_frage, gesamt_fragen)
 st.markdown('<div class="white-divider"></div>', unsafe_allow_html=True)
 
-# --- Frage oder Szenario anzeigen ---
-frage = fragen[aktuelle_frage]
+# --- Ursprüngliche Lernkontroll-Logik ---
+antworten = [
+    "Mit möglichst wenig Geld ein Unternehmen gründen.",
+    "Schnell zu lernen und das Geschäftsmodell anzupassen.",
+    "Nur für Tech-Startups geeignet.",
+    "Einen festen Plan verfolgen."
+]
+richtige_antwort = 1  # Index der richtigen Antwort
 
-if "szenario" in frage and frage["szenario"]:
-    st.markdown(f'<div class="szenario-box"><b>Szenario:</b> {frage["frage"]}</div>', unsafe_allow_html=True)
-    st.markdown(f"<b>{frage['aufgabe']}</b>", unsafe_allow_html=True)
-else:
-    st.markdown(f"<b>{frage['frage']}</b>", unsafe_allow_html=True)
+if "radio_key" not in st.session_state:
+    st.session_state["radio_key"] = 0
+if "abgegeben" not in st.session_state:
+    st.session_state["abgegeben"] = False
+if "feedback" not in st.session_state:
+    st.session_state["feedback"] = None
+if "reset_pending" not in st.session_state:
+    st.session_state["reset_pending"] = False
+
+def abgabe_callback():
+    st.session_state["abgegeben"] = True
+    auswahl = st.session_state[f"lernkontrolle_radio_{st.session_state['radio_key']}"]
+    if antworten.index(auswahl) == richtige_antwort:
+        st.session_state["feedback"] = "richtig"
+    else:
+        st.session_state["feedback"] = "falsch"
+    st.rerun()
+
+def reset_lernkontrolle():
+    st.session_state["reset_pending"] = True
+    st.rerun()
+
+if st.session_state["reset_pending"]:
+    st.session_state["abgegeben"] = False
+    st.session_state["feedback"] = None
+    st.session_state["radio_key"] += 1
+    st.session_state["reset_pending"] = False
 
 auswahl = st.radio(
-    "Antwort auswählen:",
-    frage["antworten"],
-    key=f"k2_radio_{st.session_state['k2_radio_key']}_{aktuelle_frage}",
-    disabled=st.session_state["k2_abgegeben"]
+    "Wähle die richtige Antwort:",
+    antworten,
+    key=f"lernkontrolle_radio_{st.session_state['radio_key']}",
+    disabled=st.session_state["abgegeben"]
 )
 
-# --- Abgabe-Button ---
-if not st.session_state["k2_abgegeben"]:
-    if st.button("Abgabe"):
-        st.session_state["k2_abgegeben"] = True
-        if frage["antworten"].index(auswahl) == frage["richtig"]:
-            st.session_state["k2_feedback"] = "richtig"
-        else:
-            st.session_state["k2_feedback"] = "falsch"
-        st.rerun()
+if not st.session_state["abgegeben"]:
+    st.button("Abgabe", on_click=abgabe_callback)
 
-# --- Feedback & Navigation ---
-if st.session_state["k2_abgegeben"]:
-    if st.session_state["k2_feedback"] == "richtig":
-        st.success(frage["feedback_richtig"])
-        if aktuelle_frage < gesamt_fragen-1:
-            if st.button("Weiter"):
-                st.session_state["k2_frage_idx"] += 1
-                st.session_state["k2_abgegeben"] = False
-                st.session_state["k2_feedback"] = None
-                st.session_state["k2_radio_key"] += 1
-                st.rerun()
-        else:
-            if st.button("Weiter"):
-                st.session_state["k2_frage_idx"] = 0
-                st.session_state["k2_abgegeben"] = False
-                st.session_state["k2_feedback"] = None
-                st.session_state["k2_radio_key"] += 1
-                st.switch_page("pages/6_Kapitel 3.py")
-                
+if st.session_state["abgegeben"]:
+    if st.session_state["feedback"] == "richtig":
+        st.success("✅ Richtig! Lean Startup bedeutet, schnell zu lernen.")
+        if st.button("Weiter"):
+            st.switch_page("pages/4_Kapitel 2.py")
     else:
-        st.error(frage["feedback_falsch"])
+        st.error("❌ Fast! Denk nochmal an das Build-Measure-Learn-Prinzip.")
         if st.button("Wiederholen"):
-            st.session_state["k2_abgegeben"] = False
-            st.session_state["k2_feedback"] = None
-            st.session_state["k2_radio_key"] += 1
-            st.rerun()
+            reset_lernkontrolle()
