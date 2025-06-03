@@ -122,6 +122,7 @@ if not st.session_state["k2_abgegeben"]:
             st.session_state["k2_feedback"] = "richtig"
         else:
             st.session_state["k2_feedback"] = "falsch"
+        st.rerun()
 
 # --- Feedback & Navigation ---
 if st.session_state["k2_abgegeben"]:
@@ -133,6 +134,7 @@ if st.session_state["k2_abgegeben"]:
                 st.session_state["k2_abgegeben"] = False
                 st.session_state["k2_feedback"] = None
                 st.session_state["k2_radio_key"] += 1
+                st.rerun()
         else:
             if st.button("Weiter"):
                 st.session_state["k2_frage_idx"] = 0
@@ -147,4 +149,4 @@ if st.session_state["k2_abgegeben"]:
             st.session_state["k2_abgegeben"] = False
             st.session_state["k2_feedback"] = None
             st.session_state["k2_radio_key"] += 1
-            st.info("🔄 Gleich geht's weiter! Drücke den Button Wiederholen erneut.")
+            st.rerun()
