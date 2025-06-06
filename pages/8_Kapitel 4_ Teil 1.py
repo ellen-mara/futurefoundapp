@@ -7,6 +7,29 @@ st.markdown("""
     .subtitle { color: #d9e0e7; font-size: 1.15em; margin-bottom: 1.4em; text-align: center; }
     .white-divider { height: 2px; width: 100%; background: #fff; margin: 32px 0 28px 0; border: none; border-radius: 2px; box-shadow: 0 1px 4px #0001; }
     .info-text { color: #e9ecef; font-size: 1.09em; margin-bottom: 1.2em; }
+
+    /* Erzwinge dein aktuelles Theme auf allen Geräten */
+    .stApp {
+        background-color: #23272f !important;
+        color: #ffffff !important;
+    }
+    
+    /* Überschreibe System-Theme-Preferences */
+    @media (prefers-color-scheme: light), (prefers-color-scheme: dark) {
+        .stApp {
+            background-color: #23272f !important;
+            color: #ffffff !important;
+        }
+    }
+    
+    /* Mobile-spezifische Absicherung */
+    @media only screen and (max-width: 768px) {
+        .stApp {
+            background-color: #23272f !important;
+            color: #ffffff !important;
+        }
+    }
+    
     </style>
 """, unsafe_allow_html=True)
 
