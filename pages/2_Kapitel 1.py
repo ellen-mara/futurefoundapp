@@ -2,17 +2,17 @@ import streamlit as st
 # --- Vertikaler Abstand vor den Buttons ---
 st.markdown("<div style='height: 44px;'></div>", unsafe_allow_html=True)
 
-# --- Navigation mit zwei Spalten, Buttons nebeneinander ---
+# --- Navigation mit zwei Spalten, Buttons nebeneinander (oben) ---
 col1, col2 = st.columns(2)
 
 with col1:
-    if st.button("Zurück", key="zurueck"):
+    if st.button("Zurück", key="zurueck_top"):
         for idx in range(4):
             st.session_state[f"tile_{idx}_clicked"] = False
         st.session_state["kapitel1_visited"] = False
         st.switch_page("streamlit_app.py")
 with col2:
-    if st.button("Weiter", key="weiter"):
+    if st.button("Weiter", key="weiter_top"):
         for idx in range(4):
             st.session_state[f"tile_{idx}_clicked"] = False
         st.session_state["kapitel1_visited"] = False
@@ -33,40 +33,7 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
-# --- Vertikaler Abstand vor den Buttons ---
-st.markdown("<div style='height: 44px;'></div>", unsafe_allow_html=True)
 
-# --- Navigation mit zwei Spalten, Buttons nebeneinander ---
-col1, col2 = st.columns(2)
-
-with col1:
-    if st.button("Zurück", key="zurueck"):
-        for idx in range(4):
-            st.session_state[f"tile_{idx}_clicked"] = False
-        st.session_state["kapitel1_visited"] = False
-        st.switch_page("streamlit_app.py")
-with col2:
-    if st.button("Weiter", key="weiter"):
-        for idx in range(4):
-            st.session_state[f"tile_{idx}_clicked"] = False
-        st.session_state["kapitel1_visited"] = False
-        st.switch_page("pages/3_Kapitel 1_LK.py")
-
-# CSS für Buttons auf Mobilgeräten
-st.markdown("""
-    <style>
-    @media (max-width: 600px) {
-        .stButton > button {
-            min-width: 48vw;
-            display: inline-block;
-            margin-right: 2vw;
-        }
-        .stButton {
-            display: inline-block;
-        }
-    }
-    </style>
-""", unsafe_allow_html=True)
 # Session-State für Reset beim Seitenaufruf
 if "kapitel1_visited" not in st.session_state:
     for idx in range(4):
@@ -139,17 +106,17 @@ for idx, tile in enumerate(tiles):
 # --- Vertikaler Abstand vor den Buttons ---
 st.markdown("<div style='height: 44px;'></div>", unsafe_allow_html=True)
 
-# --- Navigation mit drei Spalten, Buttons links/rechts ---
+# --- Navigation mit drei Spalten, Buttons links/rechts (unten) ---
 col1, col2, col3 = st.columns([1, 6, 1], gap="small")
 
 with col1:
-    if st.button("Zurück", key="zurueck"):
+    if st.button("Zurück", key="zurueck_bottom"):
         for idx in range(4):
             st.session_state[f"tile_{idx}_clicked"] = False
         st.session_state["kapitel1_visited"] = False
         st.switch_page("streamlit_app.py")
 with col3:
-    if st.button("Weiter", key="weiter"):
+    if st.button("Weiter", key="weiter_bottom"):
         for idx in range(4):
             st.session_state[f"tile_{idx}_clicked"] = False
         st.session_state["kapitel1_visited"] = False
