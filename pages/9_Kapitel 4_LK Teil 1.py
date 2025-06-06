@@ -10,6 +10,14 @@ st.markdown("""
     .feedback-success { background: #eafff3; border-left: 6px solid #00c897; color: #222831; border-radius: 10px; padding: 1em 1.2em; margin-top: 1.2em; font-size: 1.08em; font-weight: 500; }
     .feedback-error { background: #fff2f2; border-left: 6px solid #ff6363; color: #222831; border-radius: 10px; padding: 1em 1.2em; margin-top: 1.2em; font-size: 1.08em; font-weight: 500; }
     
+    .question-text {
+        font-size: 1.3em;
+        font-weight: bold;
+        color: #ffffff;
+        margin-bottom: 1em;
+        line-height: 1.4;
+    }
+    
     /* Erzwinge dein aktuelles Theme auf allen Geräten */
     .stApp {
         background-color: #23272f !important;
@@ -41,7 +49,7 @@ st.markdown('<div class="white-divider"></div>', unsafe_allow_html=True)
 
 st.markdown(
     '<div class="szenario-box">'
-    '<b>Szenario:</b> Du hast deine erste Version der nachhaltigen Ernährungs-App veröffentlicht. Nun möchtest du wissen, ob NutzerInnen wirklich das Rezept-Feed-Feature nutzen oder ob sie mehr Wert auf die CO₂-Daten legen. Es gibt zwei Optionen, wie du vorgehen könntest.'
+    '<b>Szenario:</b> Du hast deine erste Version der nachhaltigen Ernährungs-App veröffentlicht. Nun möchtest du wissen, ob NutzerInnen wirklich das Rezept-Feed-Feature nutzen oder ob sie mehr Wert auf die CO₂-Daten legen.'
     '</div>',
     unsafe_allow_html=True
 )
@@ -67,8 +75,17 @@ if "ld1_abgegeben" not in st.session_state:
 if "ld1_feedback" not in st.session_state:
     st.session_state["ld1_feedback"] = None
 
+# Große, fette Frage als HTML
+st.markdown(
+    '<div class="question-text">'
+    'Wie gehst du jetzt vor, um zu verstehen, welche Features für deine NutzerInnen wichtig sind?'
+    '</div>',
+    unsafe_allow_html=True
+)
+
+# Radio-Button mit kleinerem Label
 auswahl = st.radio(
-    "Wie gehst du jetzt vor, um zu verstehen, welche Features für deine NutzerInnen wichtig sind?",
+    "Antwort auswählen:",
     antworten,
     key=f"ld1_radio_{st.session_state['ld1_radio_key']}",
     disabled=st.session_state["ld1_abgegeben"]
