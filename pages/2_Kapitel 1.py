@@ -23,6 +23,18 @@ st.markdown("""
             color: #ffffff !important;
         }
     }
+        /* Mobile Button-Fix */
+    @media only screen and (max-width: 768px) {
+        .stColumns {
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-between !important;
+        }
+        .stColumns > div:first-child,
+        .stColumns > div:last-child {
+            flex: 0 0 auto !important;
+        }
+    }
     </style>
 """, unsafe_allow_html=True)
 
