@@ -1,45 +1,72 @@
 import streamlit as st
+# --- Vertikaler Abstand vor den Buttons ---
+st.markdown("<div style='height: 44px;'></div>", unsafe_allow_html=True)
 
+# --- Navigation mit zwei Spalten, Buttons nebeneinander ---
+col1, col2 = st.columns(2)
+
+with col1:
+    if st.button("Zurück", key="zurueck"):
+        for idx in range(4):
+            st.session_state[f"tile_{idx}_clicked"] = False
+        st.session_state["kapitel1_visited"] = False
+        st.switch_page("streamlit_app.py")
+with col2:
+    if st.button("Weiter", key="weiter"):
+        for idx in range(4):
+            st.session_state[f"tile_{idx}_clicked"] = False
+        st.session_state["kapitel1_visited"] = False
+        st.switch_page("pages/3_Kapitel 1_LK.py")
+
+# CSS für Buttons auf Mobilgeräten
 st.markdown("""
     <style>
-    /* Erzwinge dein aktuelles Theme auf allen Geräten */
-    .stApp {
-        background-color: #23272f !important;
-        color: #ffffff !important;
-    }
-    
-    /* Überschreibe System-Theme-Preferences */
-    @media (prefers-color-scheme: light), (prefers-color-scheme: dark) {
-        .stApp {
-            background-color: #23272f !important;
-            color: #ffffff !important;
+    @media (max-width: 600px) {
+        .stButton > button {
+            min-width: 48vw;
+            display: inline-block;
+            margin-right: 2vw;
         }
-    }
-    
-    /* Mobile-spezifische Absicherung */
-    @media only screen and (max-width: 768px) {
-        .stApp {
-            background-color: #23272f !important;
-            color: #ffffff !important;
-        }
-    }
-        /* Mobile Button-Fix */
-    @media only screen and (max-width: 768px) {
-        .stColumns {
-            display: flex !important;
-            flex-direction: row !important;
-            justify-content: space-between !important;
-        }
-        .stColumns > div:first-child,
-        .stColumns > div:last-child {
-            flex: 0 0 auto !important;
+        .stButton {
+            display: inline-block;
         }
     }
     </style>
 """, unsafe_allow_html=True)
+# --- Vertikaler Abstand vor den Buttons ---
+st.markdown("<div style='height: 44px;'></div>", unsafe_allow_html=True)
 
+# --- Navigation mit zwei Spalten, Buttons nebeneinander ---
+col1, col2 = st.columns(2)
 
+with col1:
+    if st.button("Zurück", key="zurueck"):
+        for idx in range(4):
+            st.session_state[f"tile_{idx}_clicked"] = False
+        st.session_state["kapitel1_visited"] = False
+        st.switch_page("streamlit_app.py")
+with col2:
+    if st.button("Weiter", key="weiter"):
+        for idx in range(4):
+            st.session_state[f"tile_{idx}_clicked"] = False
+        st.session_state["kapitel1_visited"] = False
+        st.switch_page("pages/3_Kapitel 1_LK.py")
 
+# CSS für Buttons auf Mobilgeräten
+st.markdown("""
+    <style>
+    @media (max-width: 600px) {
+        .stButton > button {
+            min-width: 48vw;
+            display: inline-block;
+            margin-right: 2vw;
+        }
+        .stButton {
+            display: inline-block;
+        }
+    }
+    </style>
+""", unsafe_allow_html=True)
 # Session-State für Reset beim Seitenaufruf
 if "kapitel1_visited" not in st.session_state:
     for idx in range(4):
@@ -127,4 +154,3 @@ with col3:
             st.session_state[f"tile_{idx}_clicked"] = False
         st.session_state["kapitel1_visited"] = False
         st.switch_page("pages/3_Kapitel 1_LK.py")
-
