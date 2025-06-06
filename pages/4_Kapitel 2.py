@@ -9,6 +9,29 @@ st.markdown("""
     .white-divider { height: 2px; width: 100%; background: #fff; margin: 32px 0 28px 0; border: none; border-radius: 2px; box-shadow: 0 1px 4px #0001; }
     .info-text { color: #e9ecef; font-size: 1.09em; margin-bottom: 1.2em; }
     .exkurs-box { background: #393e46; color: #fff; border-radius: 12px; padding: 1em 1.2em; margin-top: 1.2em; font-size: 1.01em; border-left: 6px solid #00adb5;}
+
+    /* Erzwinge dein aktuelles Theme auf allen Geräten */
+    .stApp {
+        background-color: #23272f !important;
+        color: #ffffff !important;
+    }
+    
+    /* Überschreibe System-Theme-Preferences */
+    @media (prefers-color-scheme: light), (prefers-color-scheme: dark) {
+        .stApp {
+            background-color: #23272f !important;
+            color: #ffffff !important;
+        }
+    }
+    
+    /* Mobile-spezifische Absicherung */
+    @media only screen and (max-width: 768px) {
+        .stApp {
+            background-color: #23272f !important;
+            color: #ffffff !important;
+        }
+    }
+    
     </style>
 """, unsafe_allow_html=True)
 
