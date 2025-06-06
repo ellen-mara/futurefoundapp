@@ -1,5 +1,32 @@
 import streamlit as st
 
+st.markdown("""
+    <style>
+    /* Erzwinge dein aktuelles Theme auf allen Geräten */
+    .stApp {
+        background-color: #23272f !important;
+        color: #ffffff !important;
+    }
+    
+    /* Überschreibe System-Theme-Preferences */
+    @media (prefers-color-scheme: light), (prefers-color-scheme: dark) {
+        .stApp {
+            background-color: #23272f !important;
+            color: #ffffff !important;
+        }
+    }
+    
+    /* Mobile-spezifische Absicherung */
+    @media only screen and (max-width: 768px) {
+        .stApp {
+            background-color: #23272f !important;
+            color: #ffffff !important;
+        }
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+
 # Session-State für Reset beim Seitenaufruf
 if "kapitel1_visited" not in st.session_state:
     for idx in range(4):
