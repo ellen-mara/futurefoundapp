@@ -8,8 +8,6 @@ st.markdown("""
     .white-divider { height: 2px; width: 100%; background: #fff; margin: 32px 0 28px 0; border: none; border-radius: 2px; box-shadow: 0 1px 4px #0001; }
     .info-text { color: #e9ecef; font-size: 1.09em; margin-bottom: 1.2em; }
     .merk-box { background: #393e46; color: #fff; border-radius: 12px; padding: 1.1em 1.4em; margin: 1.3em 0 1.3em 0; border-left: 6px solid #00adb5; font-size: 1.05em; }
-    </style>
-""", unsafe_allow_html=True)
 
     </style>
 """, unsafe_allow_html=True)
