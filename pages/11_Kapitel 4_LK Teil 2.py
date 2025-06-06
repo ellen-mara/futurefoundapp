@@ -8,6 +8,29 @@ st.markdown("""
     .white-divider { height: 2px; width: 100%; background: #fff; margin: 32px 0 28px 0; border: none; border-radius: 2px; box-shadow: 0 1px 4px #0001; }
     .feedback-success { background: #eafff3; border-left: 6px solid #00c897; color: #222831; border-radius: 10px; padding: 1em 1.2em; margin-top: 1.2em; font-size: 1.08em; font-weight: 500; }
     .feedback-error { background: #fff2f2; border-left: 6px solid #ff6363; color: #222831; border-radius: 10px; padding: 1em 1.2em; margin-top: 1.2em; font-size: 1.08em; font-weight: 500; }
+    
+    /* Erzwinge dein aktuelles Theme auf allen Geräten */
+    .stApp {
+        background-color: #23272f !important;
+        color: #ffffff !important;
+    }
+    
+    /* Überschreibe System-Theme-Preferences */
+    @media (prefers-color-scheme: light), (prefers-color-scheme: dark) {
+        .stApp {
+            background-color: #23272f !important;
+            color: #ffffff !important;
+        }
+    }
+    
+    /* Mobile-spezifische Absicherung */
+    @media only screen and (max-width: 768px) {
+        .stApp {
+            background-color: #23272f !important;
+            color: #ffffff !important;
+        }
+    }
+    
     </style>
 """, unsafe_allow_html=True)
 
