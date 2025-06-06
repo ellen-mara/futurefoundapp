@@ -47,6 +47,19 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# Nach dem Haupttext:
+st.markdown(
+    '<div class="merk-box">'
+    '<b>Die 3 Lean-Entscheidungsprinzipien:</b><br><br>'
+    '1️⃣ <b>Build:</b> Erstelle schnell ein einfaches Experiment<br>'
+    '2️⃣ <b>Measure:</b> Miss die Reaktion deiner Zielgruppe<br>'
+    '3️⃣ <b>Learn:</b> Lerne aus den Daten und passe an<br><br>'
+    '<i>Wiederhole diesen Zyklus, bis du die richtige Lösung findest.</i>'
+    '</div>',
+    unsafe_allow_html=True
+)
+
+
 st.markdown("<div style='height: 44px;'></div>", unsafe_allow_html=True)
 col1, col2, col3 = st.columns([1, 6, 1], gap="small")
 with col1:
