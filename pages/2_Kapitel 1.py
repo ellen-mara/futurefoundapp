@@ -2,82 +2,42 @@ import streamlit as st
 
 st.markdown("""
     <style>
-    /* Theme-Schutz */
+    /* Erzwinge dein aktuelles Theme auf allen Geräten */
     .stApp {
         background-color: #23272f !important;
         color: #ffffff !important;
     }
     
-    .subtitle { 
-        color: #d9e0e7; 
-        font-size: 1.18em; 
-        margin-bottom: 1.4em; 
-        text-align: center; 
+    /* Überschreibe System-Theme-Preferences */
+    @media (prefers-color-scheme: light), (prefers-color-scheme: dark) {
+        .stApp {
+            background-color: #23272f !important;
+            color: #ffffff !important;
+        }
     }
     
-    .white-divider {
-        height: 2px;
-        width: 100%;
-        background: #fff;
-        margin: 28px 0 18px 0;
-        border: none;
-        border-radius: 2px;
-        box-shadow: 0 1px 4px #0001;
-    }
-    .tile-title {
-        font-size: 1.1em;
-        font-weight: bold;
-        margin-bottom: 0.2em;
-        color: #fff !important;
-    }
-    .tile-icon {
-        font-size: 1.6em;
-        margin-right: 0.5em;
-        vertical-align: middle;
-    }
-    
-    /* STÄRKERER Mobile Button-Fix */
+    /* Mobile-spezifische Absicherung */
     @media only screen and (max-width: 768px) {
         .stApp {
             background-color: #23272f !important;
             color: #ffffff !important;
         }
-        
-        /* Überschreibe Streamlit-Columns komplett */
-        div[data-testid="column"] {
-            display: flex !important;
-            flex-direction: row !important;
-        }
-        
+    }
+        /* Mobile Button-Fix */
+    @media only screen and (max-width: 768px) {
         .stColumns {
             display: flex !important;
             flex-direction: row !important;
             justify-content: space-between !important;
-            align-items: center !important;
-            width: 100% !important;
         }
-        
-        .stColumns > div {
-            display: inline-block !important;
-            flex: none !important;
-            width: auto !important;
-        }
-        
-        .stColumns > div:first-child {
-            margin-right: auto !important;
-        }
-        
+        .stColumns > div:first-child,
         .stColumns > div:last-child {
-            margin-left: auto !important;
-        }
-        
-        .stColumns > div:nth-child(2) {
-            flex: 1 !important;
-            min-width: 20px !important;
+            flex: 0 0 auto !important;
         }
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 
 # Session-State für Reset beim Seitenaufruf
