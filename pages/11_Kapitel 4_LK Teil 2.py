@@ -15,6 +15,7 @@ st.markdown("""
         color: #ffffff;
         margin-bottom: 1em;
         line-height: 1.4;
+         }        
     
     /* Erzwinge dein aktuelles Theme auf allen Geräten */
     .stApp {
