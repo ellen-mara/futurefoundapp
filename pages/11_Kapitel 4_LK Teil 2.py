@@ -8,6 +8,13 @@ st.markdown("""
     .white-divider { height: 2px; width: 100%; background: #fff; margin: 32px 0 28px 0; border: none; border-radius: 2px; box-shadow: 0 1px 4px #0001; }
     .feedback-success { background: #eafff3; border-left: 6px solid #00c897; color: #222831; border-radius: 10px; padding: 1em 1.2em; margin-top: 1.2em; font-size: 1.08em; font-weight: 500; }
     .feedback-error { background: #fff2f2; border-left: 6px solid #ff6363; color: #222831; border-radius: 10px; padding: 1em 1.2em; margin-top: 1.2em; font-size: 1.08em; font-weight: 500; }
+
+    .question-text {
+        font-size: 1.1em;
+        font-weight: bold;
+        color: #ffffff;
+        margin-bottom: 1em;
+        line-height: 1.4;
     
     /* Erzwinge dein aktuelles Theme auf allen Geräten */
     .stApp {
@@ -38,7 +45,11 @@ st.markdown('<div class="main-title">Kapitel 4: Lernkontrolle</div>', unsafe_all
 st.markdown('<div class="subtitle">Ressourcen sinnvoll einsetzen</div>', unsafe_allow_html=True)
 st.markdown('<div class="white-divider"></div>', unsafe_allow_html=True)
 
-frage = "Du hast ein einfaches MVP entwickelt, das ein grundlegendes Rezept-Feed bietet, aber die NutzerInnen verlangen nach einer Funktion, die es ihnen ermöglicht, Mahlzeiten direkt zu planen. Du hast jedoch nur begrenzte Ressourcen. Wie gehst du mit dieser Anfrage um?"
+st.markdown(
+    '<div class="question-text">'
+    'Du hast ein einfaches MVP entwickelt, das ein grundlegendes Rezept-Feed bietet, aber die NutzerInnen verlangen nach einer Funktion, die es ihnen ermöglicht, Mahlzeiten direkt zu planen. Du hast jedoch nur begrenzte Ressourcen. Wie gehst du mit dieser Anfrage um?'
+    '</div>',
+    unsafe_allow_html=True
 
 antworten = [
     "A: Du baust sofort die neue Funktion, ohne zu testen, ob die NutzerInnen sie wirklich wollen.",
