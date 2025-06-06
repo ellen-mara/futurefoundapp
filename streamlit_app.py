@@ -2,6 +2,33 @@ import streamlit as st
 
 st.set_page_config(page_title="FutureFound App", page_icon="🚀")
 
+st.markdown("""
+    <style>
+    /* Erzwinge dein aktuelles Theme auf allen Geräten */
+    .stApp {
+        background-color: #23272f !important;
+        color: #ffffff !important;
+    }
+    
+    /* Überschreibe System-Theme-Preferences */
+    @media (prefers-color-scheme: light), (prefers-color-scheme: dark) {
+        .stApp {
+            background-color: #23272f !important;
+            color: #ffffff !important;
+        }
+    }
+    
+    /* Mobile-spezifische Absicherung */
+    @media only screen and (max-width: 768px) {
+        .stApp {
+            background-color: #23272f !important;
+            color: #ffffff !important;
+        }
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+
 # Seite 1
 st.title("Willkommen!")
 st.write("""
