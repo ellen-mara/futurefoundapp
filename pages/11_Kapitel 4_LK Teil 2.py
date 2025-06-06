@@ -15,7 +15,7 @@ st.markdown("""
         color: #ffffff;
         margin-bottom: 1em;
         line-height: 1.4;
-         }        
+    }  /* SCHLIESSENDE KLAMMER HINZUGEFÜGT */
     
     /* Erzwinge dein aktuelles Theme auf allen Geräten */
     .stApp {
@@ -46,8 +46,14 @@ st.markdown('<div class="main-title">Kapitel 4: Lernkontrolle</div>', unsafe_all
 st.markdown('<div class="subtitle">Ressourcen sinnvoll einsetzen</div>', unsafe_allow_html=True)
 st.markdown('<div class="white-divider"></div>', unsafe_allow_html=True)
 
-frage ='Du hast ein einfaches MVP entwickelt, das ein grundlegendes Rezept-Feed bietet, aber die NutzerInnen verlangen nach einer Funktion, die es ihnen ermöglicht, Mahlzeiten direkt zu planen. Du hast jedoch nur begrenzte Ressourcen. Wie gehst du mit dieser Anfrage um?'
- 
+# Große, fette Frage als HTML
+st.markdown(
+    '<div class="question-text">'
+    'Du hast ein einfaches MVP entwickelt, das ein grundlegendes Rezept-Feed bietet, aber die NutzerInnen verlangen nach einer Funktion, die es ihnen ermöglicht, Mahlzeiten direkt zu planen. Du hast jedoch nur begrenzte Ressourcen. Wie gehst du mit dieser Anfrage um?'
+    '</div>',
+    unsafe_allow_html=True
+)
+
 antworten = [
     "A: Du baust sofort die neue Funktion, ohne zu testen, ob die NutzerInnen sie wirklich wollen.",
     "B: Du verzichtest auf die Funktion, da du dich auf das Rezept-Feed konzentrieren möchtest.",
@@ -70,7 +76,7 @@ if "ld2_feedback" not in st.session_state:
     st.session_state["ld2_feedback"] = None
 
 auswahl = st.radio(
-    frage,
+    "Antwort auswählen:",  # KORRIGIERT: Einfaches Label statt undefinierter Variable
     antworten,
     key=f"ld2_radio_{st.session_state['ld2_radio_key']}",
     disabled=st.session_state["ld2_abgegeben"]
