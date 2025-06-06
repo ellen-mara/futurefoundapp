@@ -2,13 +2,42 @@ import streamlit as st
 
 st.markdown("""
     <style>
-    /* Erzwinge dein aktuelles Theme auf allen Geräten */
+    /* Theme-Schutz */
     .stApp {
         background-color: #23272f !important;
         color: #ffffff !important;
     }
     
-    /* Überschreibe System-Theme-Preferences */
+    /* Fehlende CSS-Klassen hinzufügen */
+    .subtitle { 
+        color: #d9e0e7; 
+        font-size: 1.18em; 
+        margin-bottom: 1.4em; 
+        text-align: center; 
+    }
+    
+    .white-divider {
+        height: 2px;
+        width: 100%;
+        background: #fff;
+        margin: 28px 0 18px 0;
+        border: none;
+        border-radius: 2px;
+        box-shadow: 0 1px 4px #0001;
+    }
+    .tile-title {
+        font-size: 1.1em;
+        font-weight: bold;
+        margin-bottom: 0.2em;
+        color: #fff !important;
+    }
+    .tile-icon {
+        font-size: 1.6em;
+        margin-right: 0.5em;
+        vertical-align: middle;
+    }
+    
+    /* System-Theme-Override */
     @media (prefers-color-scheme: light), (prefers-color-scheme: dark) {
         .stApp {
             background-color: #23272f !important;
@@ -16,23 +45,28 @@ st.markdown("""
         }
     }
     
-    /* Mobile-spezifische Absicherung */
+    /* Mobile-spezifische Anpassungen - KOMBINIERT */
     @media only screen and (max-width: 768px) {
         .stApp {
             background-color: #23272f !important;
             color: #ffffff !important;
         }
-    }
-        /* Mobile Button-Fix */
-    @media only screen and (max-width: 768px) {
+        
+        /* Button-Fix für Mobile */
         .stColumns {
             display: flex !important;
             flex-direction: row !important;
             justify-content: space-between !important;
+            gap: 0 !important;
         }
         .stColumns > div:first-child,
         .stColumns > div:last-child {
             flex: 0 0 auto !important;
+            width: auto !important;
+            min-width: 80px !important;
+        }
+        .stColumns > div:nth-child(2) {
+            flex: 1 !important;
         }
     }
     </style>
