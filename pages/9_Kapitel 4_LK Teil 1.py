@@ -11,7 +11,7 @@ st.markdown("""
     .feedback-error { background: #fff2f2; border-left: 6px solid #ff6363; color: #222831; border-radius: 10px; padding: 1em 1.2em; margin-top: 1.2em; font-size: 1.08em; font-weight: 500; }
     
     .question-text {
-        font-size: 1.3em;
+        font-size: 1.1em;
         font-weight: bold;
         color: #ffffff;
         margin-bottom: 1em;
