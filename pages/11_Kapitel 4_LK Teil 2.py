@@ -11,7 +11,6 @@ st.markdown("""
 
     .question-text {
         font-size: 1.1em;
-        font-weight: bold;
         color: #ffffff;
         margin-bottom: 1em;
         line-height: 1.4;
