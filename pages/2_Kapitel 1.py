@@ -8,7 +8,6 @@ st.markdown("""
         color: #ffffff !important;
     }
     
-    /* Fehlende CSS-Klassen hinzufügen */
     .subtitle { 
         color: #d9e0e7; 
         font-size: 1.18em; 
@@ -37,36 +36,44 @@ st.markdown("""
         vertical-align: middle;
     }
     
-    /* System-Theme-Override */
-    @media (prefers-color-scheme: light), (prefers-color-scheme: dark) {
-        .stApp {
-            background-color: #23272f !important;
-            color: #ffffff !important;
-        }
-    }
-    
-    /* Mobile-spezifische Anpassungen - KOMBINIERT */
+    /* STÄRKERER Mobile Button-Fix */
     @media only screen and (max-width: 768px) {
         .stApp {
             background-color: #23272f !important;
             color: #ffffff !important;
         }
         
-        /* Button-Fix für Mobile */
+        /* Überschreibe Streamlit-Columns komplett */
+        div[data-testid="column"] {
+            display: flex !important;
+            flex-direction: row !important;
+        }
+        
         .stColumns {
             display: flex !important;
             flex-direction: row !important;
             justify-content: space-between !important;
-            gap: 0 !important;
+            align-items: center !important;
+            width: 100% !important;
         }
-        .stColumns > div:first-child,
-        .stColumns > div:last-child {
-            flex: 0 0 auto !important;
+        
+        .stColumns > div {
+            display: inline-block !important;
+            flex: none !important;
             width: auto !important;
-            min-width: 80px !important;
         }
+        
+        .stColumns > div:first-child {
+            margin-right: auto !important;
+        }
+        
+        .stColumns > div:last-child {
+            margin-left: auto !important;
+        }
+        
         .stColumns > div:nth-child(2) {
             flex: 1 !important;
+            min-width: 20px !important;
         }
     }
     </style>
