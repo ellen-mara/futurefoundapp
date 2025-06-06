@@ -5,6 +5,7 @@ st.markdown("""
     .stApp { background: #23272f !important; }
     .main-title { font-size: 2.1em; font-weight: bold; color: #fff; text-align: center; }
     .subtitle { color: #d9e0e7; font-size: 1.15em; margin-bottom: 1.4em; text-align: center; }
+    szenario-box { background: #393e46; color: #fff; border-radius: 12px; padding: 1.1em 1.4em; margin: 1.3em 0 1.3em 0; border-left: 6px solid #00adb5; font-size: 1.05em; }
     .white-divider { height: 2px; width: 100%; background: #fff; margin: 32px 0 28px 0; border: none; border-radius: 2px; box-shadow: 0 1px 4px #0001; }
     .info-text { color: #e9ecef; font-size: 1.09em; margin-bottom: 1.2em; }
 
