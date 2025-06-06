@@ -50,7 +50,7 @@ st.markdown(
 
 # Nach dem Haupttext:
 st.markdown(
-    '<div class="merk-box">'
+    '<div class="szenario-box">'
     '<b>Die 3 Lean-Entscheidungsprinzipien:</b><br><br>'
     '1️⃣ <b>Build:</b> Erstelle schnell ein einfaches Experiment<br>'
     '2️⃣ <b>Measure:</b> Miss die Reaktion deiner Zielgruppe<br>'
