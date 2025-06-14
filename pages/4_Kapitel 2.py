@@ -40,12 +40,12 @@ st.markdown('<div class="subtitle">Build – Measure – Learn (BML)</div>', uns
 st.markdown('<div class="subtitle">Lernziel: Du kennst den BML-Zyklus und weisst, wie du mit einem MVP schnell und sinnvoll testest.</div>', unsafe_allow_html=True)
 st.markdown('<div class="white-divider"></div>', unsafe_allow_html=True)
 
-# --- YouTube-Video (nur von 0:00 bis 2:40 abspielbar) ---
-youtube_id = "dQw4w9WgXcQ"  # Ersetze durch die ID deines Videos!
-start_seconds = 0
-end_seconds = 160  # 2 Minuten 40 Sekunden
+# --- YouTube-Video: Lean Startup Explained (nur Build Measure Learn Cycle) ---
+youtube_id = "xkaabHiZN-k"
+start_seconds = 114  # 1:54 (1*60 + 54 = 114 Sekunden)
+end_seconds = 480    # 8:00 (8*60 = 480 Sekunden)
 
-embed_url = f"https://www.youtube.com/embed/wXc-SWqBnKc?start=0&end=160&controls=1"
+embed_url = f"https://www.youtube.com/embed/{youtube_id}?start={start_seconds}&end={end_seconds}&controls=1"
 
 st.markdown(
     f"""
