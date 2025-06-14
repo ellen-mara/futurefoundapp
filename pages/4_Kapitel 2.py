@@ -61,6 +61,7 @@ st.markdown(
 )
 st.markdown('</div>', unsafe_allow_html=True)
 
+st.markdown("<div style='height: 44px;'></div>", unsafe_allow_html=True)
 
 st.markdown(
     '<div class="info-text">'
