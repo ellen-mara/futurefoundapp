@@ -63,8 +63,6 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown('<div class="white-divider"></div>', unsafe_allow_html=True)
 
-st.markdown("<div style='height: 44px;'></div>", unsafe_allow_html=True)
-
 st.markdown(
     '<div class="info-text">'
     'Der Lean Ansatz hilft dabei, Annahmen nicht blind zu treffen, sondern testet, was Menschen wirklich brauchen. '
