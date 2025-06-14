@@ -1,4 +1,3 @@
-Kapitel 3 LK
 import streamlit as st
 
 # --- Stil und Schrittzähler ---
