@@ -63,7 +63,9 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 # --- Quelle hinzufügen ---
 st.markdown(
-    '<div class="video-source">Quelle: <a href="https://studyflix.de/wirtschaft-schueler/grunden-mit-dem-lean-startup-ansatz-546/video" target="_blank">https://studyflix.de</a></div>',
+    '<div style="font-size:0.95em; font-style:italic; color:#bfc9d1; text-align:left; margin-top:0.2em;">'
+    'Quelle: <a href="https://studyflix.de/wirtschaft-schueler/grunden-mit-dem-lean-startup-ansatz-546/video" style="color:#bfc9d1;" target="_blank">https://studyflix.de</a>'
+    '</div>',
     unsafe_allow_html=True
 )
 
